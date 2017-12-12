@@ -1,8 +1,13 @@
 h1{
-color: DarkBlue ;
+/*color: DarkBlue ;*/
+text-shadow: 2px 2px 5px gold ;
 }
 
 body {
 	background-color: Gold;
 	font-family: 'Ranchers', cursive;
+	background: url("iphone5s.jpg") no-repeat;
+	background-image: radial-gradient(gold, blue);
+	opacity: 0.5;
+
 }

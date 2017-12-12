@@ -9,5 +9,9 @@ body {
 	background: url("iphone5s.jpg") no-repeat;
 	background-image: radial-gradient(gold, blue);
 	opacity: 0.5;
+}
 
+#myname {
+	
+color: Gold;
 }

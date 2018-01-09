@@ -28,4 +28,6 @@ function duplicate() {
         document.getElementById("result").innerHTML += image;
     }
 }
+<link href="https://fonts.googleapis.com/css?family=Ranga" rel="stylesheet">
+font-family: 'Ranga', cursive;
 }

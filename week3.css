@@ -1,5 +1,6 @@
 body {
-	background:red;
+	background:blue;
+	color:white;
 }
 
 button, input {
@@ -21,9 +22,10 @@ h1:active {
 }
 	a {
 		font-weight:bold;
-		text text-decoration: none;
+		text-decoration: none;
 	}
 
 	a:visited {
 		color: green;
 	}
+

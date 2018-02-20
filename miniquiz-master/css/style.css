@@ -15,9 +15,17 @@ li .not-selected {
 }
 
 li .selected {
-    
+	text-decoration: underline;
+	color: darkorange;
 }
+    
+
 
 li .correct {
-    
+	color: green;
 }
+
+li .incorrect {
+	color: red;
+}
+    

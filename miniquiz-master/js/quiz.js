@@ -2,12 +2,14 @@ var app = {
     getQuiz: function() {
         var url = "https://opentdb.com/api.php?amount=10&type=multiple";
         $.getJSON(url, function(data) {
+            var correctOption = -1;
 
             var fetchQuestion = function(question) {
                 console.log(question);
 
+                var questionNumber = data.results.indexOf(question) + 1;
                 $("#question").html(questionNumber + "." + question.question);
-                var correctOption = Math.floor(Math.random() * 4);
+                correctOption = Math.floor(Math.random() * 4);
                 for (i = 0; i < 4; i++) {
                     if (correctOption == i) {
                         $("#option" + i).html(question.correct_answer);
@@ -50,16 +52,18 @@ var app = {
             var currentQuestion = 0;
             fetchQuestion(data.results[currentQuestion]);
             $("#nextQuestion").hide();
-            $("#scorecard").html(0/10);
+            $("#scorecard").html("0/10");
 
             var score = 0;
 
             $("#checkAnswer").click(function() {
-                if (data.results[currentQuestion].correct_answer === $("#option" + selectedAnswer).html()) {
+                $("#option" + correctOption).addClass("correct");
+                if (correctOption === selectedAnswer) {
                     score++;
-                    $("#scorecard").html("correct! your score is" + score);
+                    $("#scorecard").html("correct. your score is" + score);
                 } else {
                     $("#scorecard").html("incorrect. your score is" + score);
+                    $("#option" + selectedAnswer).addClass("incorrect");
                 }
                 $("#nextQuestion").show();
                 $("#checkAnswer").hide();
@@ -68,8 +72,11 @@ var app = {
             $("#nextQuestion").click(function() {
                 currentQuestion++;
                 if (currentQuestion >= 10) {
-                    $("#scorecard").html("Quiz complete! You scored " + score);
+                    $("#scorecard").html("Quiz complete");
                 } else {
+                    $("#option" + selectedAnswer).removeClass("incorrect");
+                    $("#option" + correctOption).removeClass("correct");
+                
                     fetchQuestion(data.results[currentQuestion]);
                     $("#scorecard").html(`${score} / 10`);
                 }

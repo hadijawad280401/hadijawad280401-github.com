@@ -1,10 +1,17 @@
 h1, h2, h3, p, a, li {
-    font-family: sans-serif;
+    font-family: "Kavivanar";
 }
 
 h1 {
 
 }
+.app {
+	width: 70%;
+	max-width: 800px;
+	margin: auto;
+}
+
+
 
 li, p.clickable {
 	cursor: pointer;
